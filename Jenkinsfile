@@ -30,20 +30,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            echo 'Build succeeded!'
-            archiveArtifacts artifacts: '*/target/.jar', allowEmptyArchive: true
-        }
-        failure {
-            echo 'Build failed!'
-            mail to: 'your-email@example.com',
-                 subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                 body: "Something is wrong with ${env.JOB_NAME}:\n\n${env.BUILD_URL}"
-        }
-        always {
-            junit 'target/surefire-reports/*.xml'
-        }
-    }
 }
