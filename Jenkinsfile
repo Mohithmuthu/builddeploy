@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'feature14368-jenkis-first-stage', url: 'https://github.com/Mohithmuthu/builddeploy.git', credentialsId: 'mohith1234'
+                git branch: 'master', url: 'https://github.com/Mohithmuthu/builddeploy.git', credentialsId: 'mohith1234'
             }
         }
 
